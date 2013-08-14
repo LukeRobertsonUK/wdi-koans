@@ -14,6 +14,10 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  raise TriangleError, "All sides must have positive length" if a <= 0 || b <= 0 || c <= 0
+  raise TriangleError, "Impossible triangle" if ( a + b + c - ( 2 *  [a,b,c].max ) <= 0  )
+
+
   if a == b && b ==c
     :equilateral
   elsif (a == b || a == c) || b == c
